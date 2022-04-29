@@ -1,5 +1,5 @@
 angular
-    .module('calendar')
+    .module('calendar', [])
     .directive('calendar', [
         function () {
             return {
