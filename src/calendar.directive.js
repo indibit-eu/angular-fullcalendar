@@ -31,7 +31,7 @@ angular
                         },
                         allDayText: '',
                         allDaySlot: false,
-                        eventClick: function(calEvent, jsEvent, view) {
+                        eventClick: function(calEvent) {
                             // an event has been clicked
                             scope.eventClick({
                                 event: calEvent,
@@ -44,7 +44,7 @@ angular
                             // a day / slot has been clicked
                             scope.slotClick({
                                 date: date.toDate(),
-                                callback: function () {
+                                onEventCreated: function () {
                                     // changed have been made
                                     _element.fullCalendar('refetchEventSources', ['events'])
                                 }
