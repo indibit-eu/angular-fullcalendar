@@ -23,7 +23,7 @@ angular
                         height: scope.height,
                         slotLabelFormat: 'HH:mm',
                         timeFormat: 'HH:mm',
-                        selectable: true,           // days / slots can be clicked
+                        selectable: scope.slotClick !== undefined,           // whether days / slots can be clicked
                         nowIndicator: true,
                         eventSources: scope.eventSources,
                         buttonText: {
