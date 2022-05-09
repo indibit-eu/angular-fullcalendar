@@ -31,6 +31,8 @@ angular
                         },
                         allDayText: '',
                         allDaySlot: false,
+                        // function parameters must be passed as 'maps'
+                        // see https://docs.angularjs.org/guide/directive#creating-a-directive-that-wraps-other-elements
                         eventClick: function(calEvent) {
                             // an event has been clicked
                             scope.eventClick({
@@ -66,6 +68,7 @@ angular
                             })
                         }
                     };
+                    // initialisieren
                     _element.fullCalendar(options)
                 }
             }
