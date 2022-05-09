@@ -35,8 +35,19 @@ angular
                             // an event has been clicked
                             scope.eventClick({
                                 event: calEvent,
-                                onEventChanged: function (changedCalEvent) {
-                                    _element.fullCalendar('updateEvent', changedCalEvent)
+                                /**
+                                 * Update event data
+                                 * @param calEvent
+                                 */
+                                updateEvent: function (calEvent) {
+                                    _element.fullCalendar('updateEvent', calEvent)
+                                },
+                                /**
+                                 * Refetch the events from the source
+                                 */
+                                refetchSource: function (sourceId) {
+                                    // https://fullcalendar.io/docs/v3/refetchEventSources
+                                    _element.fullCalendar('refetchEventSources', [sourceId])
                                 }
                             })
                         },
@@ -44,9 +55,13 @@ angular
                             // a day / slot has been clicked
                             scope.slotClick({
                                 date: date.toDate(),
-                                onEventCreated: function () {
-                                    // changed have been made
-                                    _element.fullCalendar('refetchEventSources', ['events'])
+                                /**
+                                 * Refetch the events from the source
+                                 * @param sourceId
+                                 */
+                                refetchSource: function (sourceId) {
+                                    // https://fullcalendar.io/docs/v3/refetchEventSources
+                                    _element.fullCalendar('refetchEventSources', [sourceId])
                                 }
                             })
                         }
