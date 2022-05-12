@@ -57,9 +57,12 @@ angular
                             }
                         },
                         // event ist being rendered (hook for modifying its DOM)
-                        eventRender: function(event, element, view) {
+                        eventRender: function(event, element) {
                             if (scope.eventRender) {
-                                scope.eventRender(event, element, view)
+                                scope.eventRender({
+                                    event: event,      // the Event Object being rendered
+                                    element: element   // jQuery element that will be used for rendering (already populated with time/title text)
+                                })
                             }
                         },
                         dayClick: function (date) {
