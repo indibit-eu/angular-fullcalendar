@@ -9,6 +9,7 @@ angular
                     height: '<',
                     eventSources: '<',
                     eventClick: '&',
+                    eventRender: '&',
                     slotClick: '&',
                 },
                 link: function (scope, element) {
@@ -35,28 +36,30 @@ angular
                         // see https://docs.angularjs.org/guide/directive#creating-a-directive-that-wraps-other-elements
                         eventClick: function(calEvent) {
                             // an event has been clicked
-                            scope.eventClick({
-                                event: calEvent,
-                                /**
-                                 * Update event data
-                                 * @param calEvent
-                                 */
-                                updateEvent: function (calEvent) {
-                                    _element.fullCalendar('updateEvent', calEvent)
-                                },
-                                /**
-                                 * Refetch the events from the source
-                                 */
-                                refetchSource: function (sourceId) {
-                                    // https://fullcalendar.io/docs/v3/refetchEventSources
-                                    _element.fullCalendar('refetchEventSources', [sourceId])
-                                }
-                            })
+                            if (cope.eventClick) {
+                                scope.eventClick({
+                                    event: calEvent,
+                                    /**
+                                     * Update event data
+                                     * @param calEvent
+                                     */
+                                    updateEvent: function (calEvent) {
+                                        _element.fullCalendar('updateEvent', calEvent)
+                                    },
+                                    /**
+                                     * Refetch the events from the source
+                                     */
+                                    refetchSource: function (sourceId) {
+                                        // https://fullcalendar.io/docs/v3/refetchEventSources
+                                        _element.fullCalendar('refetchEventSources', [sourceId])
+                                    }
+                                })
+                            }
                         },
-                        // render title for background events, too
-                        eventRender: function(event, element){
-                            if (event.rendering === 'background' && event.title){
-                                element.append(event.title);
+                        // event ist being rendered (hook for modifying its DOM)
+                        eventRender: function(event, element, view) {
+                            if (scope.eventRender) {
+                                scope.eventRender(event, element, view)
                             }
                         },
                         dayClick: function (date) {
