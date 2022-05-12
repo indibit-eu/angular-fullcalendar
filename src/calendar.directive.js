@@ -36,7 +36,7 @@ angular
                         // see https://docs.angularjs.org/guide/directive#creating-a-directive-that-wraps-other-elements
                         eventClick: function(calEvent) {
                             // an event has been clicked
-                            if (cope.eventClick) {
+                            if (scope.eventClick) {
                                 scope.eventClick({
                                     event: calEvent,
                                     /**
@@ -67,17 +67,19 @@ angular
                         },
                         dayClick: function (date) {
                             // a day / slot has been clicked
-                            scope.slotClick({
-                                date: date.toDate(),
-                                /**
-                                 * Refetch the events from the source
-                                 * @param sourceId
-                                 */
-                                refetchSource: function (sourceId) {
-                                    // https://fullcalendar.io/docs/v3/refetchEventSources
-                                    _element.fullCalendar('refetchEventSources', [sourceId])
-                                }
-                            })
+                            if (scope.slotClick) {
+                                scope.slotClick({
+                                    date: date.toDate(),
+                                    /**
+                                     * Refetch the events from the source
+                                     * @param sourceId
+                                     */
+                                    refetchSource: function (sourceId) {
+                                        // https://fullcalendar.io/docs/v3/refetchEventSources
+                                        _element.fullCalendar('refetchEventSources', [sourceId])
+                                    }
+                                })
+                            }
                         }
                     };
                     // initialisieren
