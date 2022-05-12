@@ -53,6 +53,12 @@ angular
                                 }
                             })
                         },
+                        // render title for background events, too
+                        eventRender: function(event, element){
+                            if (event.rendering === 'background' && event.title){
+                                element.append(event.title);
+                            }
+                        },
                         dayClick: function (date) {
                             // a day / slot has been clicked
                             scope.slotClick({
