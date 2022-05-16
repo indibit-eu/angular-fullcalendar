@@ -84,6 +84,10 @@ angular
                     };
                     // initialisieren
                     _element.fullCalendar(options)
+                    // auf Ereignisse reagieren
+                    scope.$on('refetch-event-sources', function (e, eventSources) {
+                        _element.fullCalendar('refetchEventSources', eventSources)
+                    })
                 }
             }
         }
