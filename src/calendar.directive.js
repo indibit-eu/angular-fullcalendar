@@ -18,6 +18,11 @@ angular
                         themeSystem: 'bootstrap3',
                         locale: 'de',
                         timezone: 'local',      // if you store timezone information for your events and you want events displayed differently depending on the local timezone of each end-user’s computer.
+                        header: {
+                            left: 'prev,next title',
+                            center: '',
+                            right: 'listWeek month,agendaWeek,agendaDay'
+                        },
                         defaultView: 'agendaWeek',
                         weekends: false,
                         columnHeaderFormat: 'ddd D.',
