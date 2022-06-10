@@ -38,6 +38,8 @@ angular
                         timeFormat: 'HH:mm',
                         selectable: scope.slotClick !== undefined,           // whether days / slots can be clicked
                         nowIndicator: true,
+                        scrollTime: '07:00:00',     // initial auf 7 Uhr scrollen
+                        scrollTimeReset: false,     // aktuellen Zeitausschnitt nicht zurücksetzen, wenn der Datumsbereich geändert wird
                         eventSources: scope.eventSources,
                         buttonText: {
                             today: 'Heute',
