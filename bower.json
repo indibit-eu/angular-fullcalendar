@@ -1,6 +1,6 @@
 {
   "name": "angular-fullcalendar",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "license": "MIT",
   "main": "./src/calendar.directive.js",
   "dependencies": {
