@@ -21,16 +21,16 @@ angular
                         header: {
                             left: 'today prev,next title',
                             center: '',
-                            right: 'listWeek month,agendaWeek,agendaFiveDay,agendaDay'
+                            right: 'listWeek month,agendaWeek,agendaDay'
                         },
-                        views: {
-                            agendaFiveDay: {
-                                type: 'agenda',
-                                hiddenDays: [0, 6],
-                                buttonText: '5 Tage'
-                            }
-                        },
-                        defaultView: 'agendaFiveDay',
+                        // views: {
+                        //     agendaFiveDay: {
+                        //         type: 'agenda',              das scheint in v3 nicht zu gehen
+                        //         hiddenDays: [0, 6],
+                        //         buttonText: '5 Tage'
+                        //     }
+                        // },
+                        defaultView: 'agendaWeek',
                         // weekends: false,
                         columnHeaderFormat: 'ddd D.',
                         height: scope.height,
