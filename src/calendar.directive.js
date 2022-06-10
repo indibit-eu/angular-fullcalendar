@@ -19,19 +19,18 @@ angular
                         locale: 'de',
                         timezone: 'local',      // if you store timezone information for your events and you want events displayed differently depending on the local timezone of each end-user’s computer.
                         header: {
-                            left: 'prev,today,next title',
+                            left: 'today prev,next title',
                             center: '',
                             right: 'listWeek month,agendaWeek,agendaFiveDay,agendaDay'
                         },
                         views: {
                             agendaFiveDay: {
                                 type: 'agenda',
-                                duration: { weeks: 1 },
-                                dayCount: 5,
+                                hiddenDays: [0, 6],
                                 buttonText: '5 Tage'
                             }
                         },
-                        defaultView: 'agendaWeek',
+                        defaultView: 'agendaFiveDay',
                         // weekends: false,
                         columnHeaderFormat: 'ddd D.',
                         height: scope.height,
