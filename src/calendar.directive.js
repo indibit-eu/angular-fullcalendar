@@ -22,7 +22,7 @@ angular
                         customButtons: scope.createClick
                             ? {
                                 createButton: {
-                                    text: 'Neu',
+                                    text: 'Neuer Termin',
                                     click: scope.createClick()
                                 }
                             }
