@@ -23,7 +23,7 @@ angular
                             ? {
                                 createButton: {
                                     text: 'Neuer Termin',
-                                    click: scope.createClick()
+                                    click: scope.createClick
                                 }
                             }
                             : {},
