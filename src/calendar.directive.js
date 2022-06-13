@@ -11,6 +11,7 @@ angular
                     eventClick: '&',
                     eventRender: '&',
                     slotClick: '&',
+                    createClick: '&'
                 },
                 link: function (scope, element) {
                     var _element = $(element)
@@ -18,10 +19,20 @@ angular
                         themeSystem: 'bootstrap3',
                         locale: 'de',
                         timezone: 'local',      // if you store timezone information for your events and you want events displayed differently depending on the local timezone of each end-user’s computer.
+                        customButtons: scope.createClick
+                            ? {
+                                createButton: {
+                                    text: 'Neu',
+                                    click: scope.createClick()
+                                }
+                            }
+                            : {},
                         header: {
                             left: 'today prev,next title',
                             center: '',
-                            right: 'listWeek month,agendaWeek,agendaDay'
+                            right: scope.createClick
+                                ? 'listWeek month,agendaWeek,agendaDay createButton'
+                                : 'listWeek month,agendaWeek,agendaDay'
                         },
                         // views: {
                         //     agendaFiveDay: {
