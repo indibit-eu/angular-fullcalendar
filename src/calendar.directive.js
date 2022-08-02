@@ -11,7 +11,8 @@ angular
                     eventClick: '&',
                     eventRender: '&',
                     slotClick: '&',
-                    createClick: '&'
+                    createClick: '&',
+                    defaultView: '<'
                 },
                 link: function (scope, element) {
                     var _element = $(element)
@@ -41,7 +42,7 @@ angular
                         //         buttonText: '5 Tage'
                         //     }
                         // },
-                        defaultView: 'agendaWeek',
+                        defaultView: scope.defaultView === undefined ? 'agendaWeek' : scope.defaultView,
                         // weekends: false,
                         columnHeaderFormat: 'ddd D.',
                         height: scope.height,
@@ -109,12 +110,19 @@ angular
                             }
                         }
                     };
+
                     // initialisieren
                     _element.fullCalendar(options)
+
                     // auf Ereignisse reagieren
                     scope.$on('refetch-event-sources', function (e, eventSources) {
                         _element.fullCalendar('refetchEventSources', eventSources)
                     })
+
+                    scope.$on('change-view', function (e, view) {
+                        _element.fullCalendar('changeView', view)
+                    })
+
                 }
             }
         }
