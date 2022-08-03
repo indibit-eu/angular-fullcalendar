@@ -4,8 +4,8 @@
   "license": "MIT",
   "main": "./src/calendar.directive.js",
   "dependencies": {
-    "angular": ">=1.8.2",
-    "jquery": ">=3.6.0",
-    "fullcalendar": ">=3.10.5"
+    "angular": "1.8.3",
+    "jquery": "3.6.0",
+    "fullcalendar": "3.10.5"
   }
 }
