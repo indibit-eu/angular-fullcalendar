@@ -12,7 +12,8 @@ angular
                     eventRender: '&',
                     slotClick: '&',
                     createClick: '&',
-                    defaultView: '<'
+                    defaultView: '<',
+                    listWeekEnabled: '<'
                 },
                 link: function (scope, element) {
                     var _element = $(element)
@@ -32,8 +33,8 @@ angular
                             left: 'today prev,next title',
                             center: '',
                             right: scope.createClick
-                                ? 'listWeek month,agendaWeek,agendaDay createButton'
-                                : 'listWeek month,agendaWeek,agendaDay'
+                                ? (scope.listWeekEnabled ? 'listWeek month,agendaWeek,agendaDay createButton' : 'month,agendaWeek,agendaDay createButton')
+                                : (scope.listWeekEnabled ? 'listWeek month,agendaWeek,agendaDay' : 'month,agendaWeek,agendaDay')
                         },
                         // views: {
                         //     agendaFiveDay: {
